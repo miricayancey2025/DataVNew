@@ -1,0 +1,3 @@
+- models located at: app/models
+- views located at: app/views
+- migrate files located at: db/migrate

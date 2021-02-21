@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<%= stylesheet_link_tag "home_page", media: "all" %>
+<%= javascript_include_tag "home_page" %>
+
+<% if flash[:danger] %>
+  <p><%= flash[:danger] %></p>
+<% end %>
+
+<div class="imgcontainer"><!--Form Logo -->
+	<%= image_tag "valpo_login.png" %>
+</div>
+
+<!-- Container for Log -->
+<div class="container">
+	<div id="message" style="color: red; font-style: bold; float: left;"></div><br />
+	<%= form_for(:home_page) do |f| %>
+		<%= f.label :username %>
+		<%= f.text_field :username, placeholder: "Enter Username", name: "uname", required: true %>
+
+		<%= f.label :password %>
+		<%= f.password_field :password, placeholder: "Enter Password", name: "psw", required: true %>
+
+		<%= f.submit "Student Log-in", formaction: student_login_path %>
+		<%= f.submit "Registrar Log-in", formaction: registrar_login_path %>
+	<% end %>
+</div>
+
+<!--Bottom Container for Cancel + Password -->
+<div class="container" style="background-color:#f1f1f1">
+	<button type="button" class="cancelbtn">Cancel</button>
+	<span class="psw">Forgot <a href="#">password?</a></span>
+</div>
+
+

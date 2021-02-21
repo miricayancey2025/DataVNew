@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<%= stylesheet_link_tag "student", media: "all" %>
+<%= javascript_include_tag "student" %>
+
+<!-- Navbar -->
+<nav class="topnav">
+	<div id="title">
+	<p>DataV-New (Student)</p>
+	</div>
+	
+	<%= link_to "Log Out", root_path %>
+</nav>
+
+<div class="content">
+	<div class="left">
+
+	<!-- Profile -->
+		<div class="w3-card w3-round w3-white">
+			<div class="w3-container" style=" overflow: hidden;">
+				<% if @student %>
+					<h4 class="w3-center" id="welcome">Welcome, <%= @student.full_name %></h4>
+				<% end %>
+				<p class="w3-center"><%= image_tag "valpo_login.png", class: "w3-circle", style: "height:106px;width:106px" %></p>
+				<hr>
+				<div id="user"></div>
+			</div>
+		</div>
+		<br>
+		
+		
+		<div class="w3-card w3-round w3-white">
+			<div class="w3-container" id="meal">
+			</div>
+		</div>
+		<br><br>
+	</div><!-- End Left Column -->
+	
+<!-- Right Column -->
+<div class="right">
+	<div class="rights">
+		<button onclick="myFunction('Demo3')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-circle-o-notch fa-fw w3-margin-right"></i>Restrictions</button>
+			  <div id="Demo3" class="w3-hide w3-container">
+				<p> You have no restrictions at this time!</p>
+			  </div>
+		</div>
+	<div class="rights">	
+		<button  onclick="myFunction('Demo4')"class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-circle-o-notch fa-fw w3-margin-right"></i>Financial Aid</button>
+		<div id="Demo4" class="w3-hide w3-container">
+			<ul style="padding: 0;">
+			<p id="fin"><a href="#">Financial Aid Status By Term</a></p>
+			<p id="fin"><a href="#">My Documents</a></p>
+			<p id="fin"><a href="#">Financial Aid Award Letter</a></p>
+			<p id="fin"><a href="#">Cumulative Loan Report</a></p>
+			</ul>		
+			</div>
+			</div>
+	<div class="rights">	
+		<button  onclick="myFunction('Demo5')"class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-circle-o-notch fa-fw w3-margin-right"></i>Academics</button>
+		<div id="Demo5" class="w3-hide w3-container">
+			<ul style="padding: 0;">
+			<p id="fin"><a href="#">Grades</a></p>
+			<p id="fin"><a href="#">Academic Record</a></p>
+			<p id="fin"><a href="#">Meal Plan</a></p>
+			<p id="fin"><a href="#">Class Schedule</a></p>
+			</ul>		
+			</div>
+			</div>
+	<div class="rights">	
+		<button  onclick="myFunction('Demo6')"class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-circle-o-notch fa-fw w3-margin-right"></i>Registration</button>
+		<div id="Demo6" class="w3-hide w3-container">
+			<ul style="padding: 0;">
+			<p id="fin"><a href="#">Search for Sections</a></p>
+			<p id="fin"><a href="#">Register/Add/Drop/Wait Lists</a></p>
+			<p id="fin"><a href="#">Transfer Equivencies</a></p>
+			<p id="fin"><a href="#">Course Withdrawl</a></p>
+			</ul>		
+			</div>
+			</div>		
+</div>
+    <!-- End Right Column -->
+
+<% if flash[:danger] %>
+  <p><%= flash[:danger] %></p>
+<% end %>
+
+<% if flash[:success] %>
+  <p><%= flash[:success] %></p>
+<% end %>
+	
+	<!-- Quick Registration Form -->
+<div id="registration">
+	<%= form_for(:register, url: student_register_path) do |f| %>
+		<table>
+		 	<h3 style ="margin-left: 25px;"> Quick Registration </h3>
+			<tr>
+				<th><%= f.label :subject %></th>
+				<th><%= f.label :course_number %></th>
+				<th><%= f.label :section %></th>
+				<th><%= f.label :term %></th>
+	  		</tr>
+	  		<tr>
+				<td><%= f.text_field :subject, required: true %></td>
+				<td><%= f.text_field :course_number, required: true %></td>
+				<td><%= f.text_field :section, required: true %></td>
+				<td><%= f.select :term, options_for_select([["Fall", 0], ["Spring", 1]]) %></td>
+	  		</tr>
+	  	</table>
+		<%= f.submit "Submit" %>
+	<% end %>
+	<p style ="margin-left: 25px;"> Registered Courses: </p>
+			<table>
+				<tr>
+					<th>Name:</th>
+					<th>Professor:</th>
+					<th>Section:</th>
+					<th>Class Times:</th>
+					<th>Credits:</th>
+					<th>Locaton:</th>
+					<th>Description:</th>
+				</tr>
+			<% @student.courses.each do |course| %>
+				<tr>
+					<th><%= course.full_name %></th>
+					<th><%= course.professor %></th>
+					<th><%= course.section %></th>
+					<th><%= course.class_times %></th>
+					<th><%= course.credits %></th>
+					<th><%= course.location %></th>
+					<th><%= course.description %></th>
+				</tr>
+			<% end %>
+			</table>
+</div>
+
+<br /><br /><br /><br /><br /><br /><br />
+
+</div> <!-- End of Content -->
+
+ 
+ <!-- The Button click reveal action for the right side tabs and next semester -->
+<script>
+// Accordion
+function myFunction(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        x.previousElementSibling.className += " w3-theme-d1";
+    }
+	else { 
+        x.className = x.className.replace("w3-show", "");
+        x.previousElementSibling.className = 
+        x.previousElementSibling.className.replace(" w3-theme-d1", "");
+    }
+}
+</script>
+

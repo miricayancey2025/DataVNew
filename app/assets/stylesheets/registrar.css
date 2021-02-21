@@ -1,0 +1,52 @@
+body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+input[type=text] {
+    width: 135px !important;
+    box-sizing: border-box !important;
+    border: 2px solid #ccc !important;
+    border-radius: 15px !important;
+    font-size: 16px !important;
+	text-align:left !important;
+    background-color: white !important;
+    padding: 12px 20px 12px 40px !important;
+    -webkit-transition: width 0.4s ease-in-out !important;
+    transition: width 0.4s ease-in-out !important;
+}
+.main{
+margin-top: 3% !important;
+margin-left: 13% !important;
+}
+input[type=text]:focus {
+    width: 85% !important;
+}
+/*Search bar styles*/
+.search-container button {
+	float: none !important;
+	margin: 3px !important;
+	padding:10px !important;
+	background: #ddd !important;
+	border-radius: 15px !important;
+	font-size: 17px !important;
+	border: none !important;
+	cursor: pointer !important;
+}
+.search-container{
+	margin: 0 !important;
+	padding:0 !important;
+	width: 85% !important;
+	margin-right: 15px !important;
+}
+.search-container button:hover {
+	background: #ccc !important;
+}
+.btn{
+background: #ddd !important;
+	border-radius: 10px !important;
+	font-size: 17px !important;
+	border: none !important;
+	cursor: pointer !important;
+}
+td{
+font-size: 20px !important;
+padding: 20px !important;
+}
+

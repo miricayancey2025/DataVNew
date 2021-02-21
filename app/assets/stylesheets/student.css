@@ -1,0 +1,162 @@
+/*Grid Sections*******************************/
+.content{
+	width: 100% !important;
+	overflow: auto !important;
+}
+.left{
+	width: 22% !important;
+	float:left !important;
+	padding-left: 2% !important;
+	padding-top: 3% !important;
+}
+.main {
+	width: 58% !important;
+	float: left !important;
+	padding-left: 2% !important;
+	padding-top: 3% !important;
+ }
+.right {
+	width: 18% !important;
+	float: left !important;
+	padding-left: 2% !important;
+	padding-top: 3% !important;
+ }
+.main_left{
+	width: 50% !important;
+	float: left !important;
+	padding-bottom: 5% !important;
+}
+.main_right{
+	width: 50% !important;
+	float: left !important;
+	padding-left: 2% !important;
+	padding-bottom: 5% !important;
+}
+.rights{padding-bottom: 10% !important;}
+/*******************************************************/
+/*Navigation CSS ***************************************/
+.topnav {
+	overflow: hidden !important;
+	background-color: #603613 !important;
+	justify-content: space-between !important;
+	align-items: center !important;
+	height: 60px !important;
+}
+#nava {
+	float: right !important;
+	color: #f2f2f2 !important;
+	text-align: center !important;
+	padding: 1% !important;
+	text-decoration: none !important;
+	font-size: 17px !important;
+}
+.topnav a.active {
+	background-color: #ddd !important;
+	color: black !important;
+}
+.topnav a.active {
+	background-color: #874e11 !important;
+	color: white !important;
+}
+/* The dropdown container ******************/
+.dropdown {
+	float: left !important;
+	overflow: hidden !important;
+}
+/* Dropdown button */
+.dropdown .dropbtn {
+	font-size: 17px !important;
+	border: none !important;
+	outline: none !important;
+	color: white !important;
+	padding: 18px 16px !important;
+	background-color: inherit !important;
+	font-family: inherit !important; /* Important for vertical align on mobile phones */
+	margin: 0 !important; /* Important for vertical align on mobile phones */
+}
+/* Add a grey background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+	background-color: #ddd !important;
+}
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+	display: none !important;
+	position: absolute !important;
+	background-color: #f9f9f9 !important;
+	min-width: 160px !important;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2) !important;
+	z-index: 1 !important;
+}
+/* Links inside the dropdown */
+.dropdown-content a {
+	float: none !important;
+	color: black !important;
+	padding: 12px 16px !important;
+	text-decoration: none !important;
+	display: block !important;
+	text-align: left !important;
+}
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+	display: block !important;
+}
+#title{
+	font-family: 'Playfair Display', serif !important;
+	float: left !important;
+	background-color: #874e11 !important;
+	color: #ddd !important;
+	font-size: 25px !important;
+	padding-left: 10px !important;
+	padding-right: 10px !important;
+}
+/*****************************************************************/
+/* Class List Sections CSS ***************************************/
+* {box-sizing: border-box !important;}
+#current {padding: 0 !important;}
+#fin { /*The ID for all the Semester Information*/
+	padding: 10px 20px !important;
+	border-bottom: 1px solid #ccc !important;
+}
+#gen{/* The ID for all the generated User information */
+	padding: 10px 10px !important;
+	border-bottom: 1px outset #ccc !important;
+	border-radius: 5px !important;
+}
+a:link {text-decoration: none !important;}
+a:hover {color: grey !important;}
+/*************************************************************/
+/* Express Registration *************************************/
+input[type=text] {
+	padding: 1px !important;
+	border: none !important;
+	border-bottom: 1px solid #ccc !important;
+	border-left:1px solid #ccc !important;
+	border-right:1px solid #ccc !important;
+    border-radius: 5px !important;
+    font-size: 17px !important;
+}
+#registration{
+	width: 55% !important;
+	overflow: auto !important;
+}
+tr{padding: 5px !important;}
+td{padding:15px !important;}
+.submit {
+	border-radius: 10px !important;
+	background-color: #4CAF50 !important; /* Green */
+    border: none !important;
+    color: white !important;
+    padding: 16px 32px !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    font-size: 16px !important;
+    margin: 4px 2px !important;
+    -webkit-transition-duration: 0.4s !important; /* Safari */
+    transition-duration: 0.4s !important;
+    cursor: pointer !important;
+	margin-left: 85% !important;
+}
+.submit:hover{background-color: #e7e7e7 !important;}
+/* End of Express Registration ******************************/
+

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<%= stylesheet_link_tag "registrar", media: "all" %>
+
+
+<nav class="topnav">
+	<div id="title">
+	<p>DataV-New (Registrar)</p>
+	</div>
+	
+	<%= link_to "Log Out", root_path %>
+</nav>
+
+<% if flash[:danger] %>
+  <p><%= flash[:danger] %></p>
+<% end %>
+
+<br /><br />
+<div class="main">
+  <h1 class="w3-jumbo"><b>Search for Students.</b></h1>
+	<br><br><br><br>
+	<div class="search-container">
+        <%= form_for(:search_student) do |f| %>
+		<%= f.text_field :search, placeholder: "Search...", id: "search", name: "search", style: "padding: 1%;margin:0;" %>
+		<%= f.submit "Search", formaction: registrar_search_results_path, id: "mybtn" %>
+        <% end %>
+</div>
+
+<br /><br />
+
+<div id="table2">
+<% if @students %>
+<table>
+<tr>
+	<th>Name:</th>
+	<th>Registered Courses:</th>
+</tr>
+<% @students.each do |student| %>
+	<tr>
+		<th><%= student.full_name %></th>
+		<th>
+			<table>
+				<tr>
+					<th>Name:</th>
+					<th>Professor:</th>
+					<th>Section:</th>
+					<th>Class Times:</th>
+					<th>Credits:</th>
+					<th>Locaton:</th>
+					<th>Description:</th>
+				</tr>
+			<% student.courses.each do |course| %>
+				<tr>
+					<th><%= course.full_name %></th>
+					<th><%= course.professor %></th>
+					<th><%= course.section %></th>
+					<th><%= course.class_times %></th>
+					<th><%= course.credits %></th>
+					<th><%= course.location %></th>
+					<th><%= course.description %></th>
+				</tr>
+			<% end %>
+			</table>
+		</th>
+	</tr>
+<% end %>
+</table>
+<% end %>
+</div>
+</div>
+
+<br /><br />
